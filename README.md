@@ -1,41 +1,31 @@
-# Unchained Capital Bitcoin Utilities
-
-[![Build Status](https://travis-ci.com/unchained-capital/unchained-bitcoin.svg?branch=master)](https://travis-ci.com/unchained-capital/unchained-bitcoin)
+# Unchained Capital Groestlcoin Utilities
 
 This library builds on the excellent
-[bitcoinjs-lib](https://github.com/bitcoinjs/bitcoinjs-lib), adding
+[groestlcoinjs-lib](https://github.com/Groestlcoin/groestlcoinjs-lib), adding
 valuable but missing functionality for validation, HD wallets, block
 explorers, and especially multisig.
 
-Full API documentation can be found at
-[unchained-bitcoin](https://unchained-capital.github.io/unchained-bitcoin).
-
-This library was built and is maintained by [Unchained
-Capital](https://www.unchained-capital.com).
+This library is forked from [unchained-bitcoin](https://github.com/unchained-capital/unchained-bitcoin).
 
 ## Installation
 
-`unchained-bitcoin` is distributed as an NPM package.  Add it to your
+`unchained-groestlcoin` is distributed as an NPM package.  Add it to your
 application's dependencies:
 
 ```
-$ npm install --save unchained-bitcoin
+$ npm install --save unchained-groestlcoin
 ```
 
 ## Usage
 
 The library provides a functional API which builds upon data
-structures used by `bitcoinjs-lib`.
+structures used by `groestlcoinjs-lib`.
 
 In particular, many functions accept a `Multisig` object which is the
 type name given by this library to the kind of object returned by
 functions such as `bitcoin.payments.p2ms`, `bitcoin.payments.p2sh`,
-&c. from `bitcoinjs-lib`.
+&c. from `groestlcoinjs-lib`.
 
-The examples below provide an initial idea of how to use this library,
-but see the [API
-documentation](https://unchained-capital.github.io/unchained-bitcoin)
-for full details.
 
 ### Interacting with a multisig address.
 
@@ -56,7 +46,7 @@ import {
 	P2SH,                      // or: P2SH_P2WSH, P2WSH,
 	TESTNET,                   // or: MAINNET,
 	multisigAddress,
-} from "unchained-bitcoin";
+} from "unchained-groestlcoin";
 
 // Public keys are represented as compressed hex.
 const publicKeys = [
@@ -95,11 +85,6 @@ multisigPublicKeys(multisig); // Returns publicKeys
 ```
 
 
-See the [API
-documentation](https://unchained-capital.github.io/unchained-bitcoin)
-for full details on these functions.
-
-
 #### Multisig Transactions
 
 `Multisig` objects can be used to draft signed or unsigned
@@ -110,7 +95,7 @@ import {
   generateMultisigFromPublicKeys, TESTNET, P2SH,
   unsignedMultisigTransaction,
   validateMultisigSignature,
-} from "unchained-bitcoin";
+} from "unchained-groestlcoin";
 // Spending 3 UTXOs from the same multisig address.
 
 // First build the multisig for the address.
@@ -181,7 +166,7 @@ console.log(signedTransaction.tHex());
 ### Validation
 
 This library contains several useful functions for validation not
-provided by `bitcoinjs-lib` or other libraries.  The validation
+provided by `groestlcoinjs-lib` or other libraries.  The validation
 functions are designed to return an empty string `''` on valid input
 and provide a helpful error message otherwise.
 
@@ -214,9 +199,9 @@ Developers who want to work on this library should clone the source
 code and install dependencies:
 
 ```
-$ git clone https://github.com/unchained-capital/unchained-bitcoin`
+$ git clone https://github.com/Groestlcoin/unchained-groestlcoin`
 ...
-$ cd unchained-bitcoin
+$ cd unchained-groestlcoin
 $ npm install
 ```
 
@@ -232,8 +217,8 @@ $ npm test
 
 Unchained Capital welcomes bug reports, new features, and better documentation for this library.
 
-If you are fixing a bug or adding a feature, please first check the [GitHub issues page](https://github.com/unchained-capital/unchained-bitcoin/issues) to see if there is any existing discussion about it.
+If you are fixing a bug or adding a feature, please first check the [GitHub issues page](https://github.com/Groestlcoin/unchained-groestlcoin/issues) to see if there is any existing discussion about it.
 
-To contribute, create a pull request (PR) on GitHub against the [Unchained Capital fork of unchained-bitcoin](https://github.com/unchained-capital/unchained-bitcoin).
+To contribute, create a pull request (PR) on GitHub against the [Unchained Capital fork of unchained-groestlcoin](https://github.com/Groestlcoin/unchained-groestlcoin).
 
 Before you submit your PR, make sure to update and run the test suite!

@@ -41,7 +41,7 @@
     "@babel/polyfill": "^7.7.0",
     "bignumber.js": "^8.1.1",
     "bip32grs": "^2.0.5",
-    "bitcoin-address-validation": "^0.2.9",
+    "groestlcoin-address-validation": "https://github.com/Groestlcoin/groestlcoin-address-validation",
     "groestlcoinjs-lib": "^5.1.10",
     "bs58grscheck": "^2.1.2",
     "bufio": "^1.0.6",
