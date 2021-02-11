@@ -1,24 +1,24 @@
 /**
  * This module provides conversion and validation functions for units
  * (Satoshis, BTC) and hex strings.
- * 
+ *
  * @module utils
  */
 
 import BigNumber from "bignumber.js";
-import { crypto } from "bitcoinjs-lib";
+import { crypto } from "groestlcoinjs-lib";
 
 /**
  * Converts a byte array to its hex representation.
- * 
+ *
  * @param {number[]} byteArray - input byte array
  * @returns {string} hex representation of input array
- * 
+ *
  * @example
  * import {toHexString} from "unchained-bitcoin";
  * const hex = toHexString([255, 0, 15, 16, 31, 32]);
  * console.log(hex) // ff000f101f20
- * 
+ *
  */
 export function toHexString(byteArray) {
   return Array.prototype.map.call(byteArray, function (byte) {
@@ -34,17 +34,17 @@ export function toHexString(byteArray) {
  *
  * - The presence of the common prefix `0x` will make the input be
  *   considered invalid (because of the` `x`).
- * 
+ *
  * @param {string} inputString - string to validate
  * @returns {string} empty if valid or corresponding validation message if not
- * 
+ *
  * @example
  * import {validateHex} from "unchained-bitcoin";
  * console.log(validateHex('00112233gg')) // "Invalid hex: ..."
  * console.log(validateHex('0xdeadbeef')) // "Invalid hex: ..."
  * console.log(validateHex('deadbeef')) // ""
  * console.log(validateHex('DEADbeef')) // ""
- * 
+ *
  */
 export function validateHex(inputString) {
   if (inputString.length % 2) {
@@ -62,16 +62,16 @@ export function validateHex(inputString) {
  *
  * - Accepts both positive and negative input values.
  * - Rounds down (towards zero) input value to the nearest Satoshi.
- * 
+ *
  * @param {BigNumber|string|number} satoshis - value in Satoshis
  * @returns {BigNumber} value in BTC
- * 
+ *
  * @example
  * import {satoshisToBitcoins} from "unchained-bitcoin";
  * console.log(satoshisToBitcoins(123450000)); // 1.2345
  * console.log(satoshisToBitcoins('0.5')); // 0
  * console.log(satoshisToBitcoins('-100000000.5')); // -1.0
- * 
+ *
  */
 export function satoshisToBitcoins(satoshis) {
   const originalValue = BigNumber(satoshis);
@@ -84,10 +84,10 @@ export function satoshisToBitcoins(satoshis) {
  *
  * - Accepts both positive and negative input values.
  * - Rounds down output value to the nearest Satoshi.
- * 
+ *
  * @param {BigNumber|string|number} btc - value in BTC
  * @returns {BigNumber} value in satoshis
- * 
+ *
  * @example
  * import {bitcoinsToSatoshis} from "unchained-bitcoin";
  * console.log(bitcoinsToSatoshis(1.2345)); // 123450000

@@ -6,7 +6,7 @@ import {
   getNetworkFromPrefix,
 } from "./networks";
 
-const bitcoin = require('bitcoinjs-lib');
+const bitcoin = require('groestlcoinjs-lib');
 
 describe("networks", () => {
 
@@ -54,5 +54,5 @@ describe("networks", () => {
     });
 
   });
-  
+
 });

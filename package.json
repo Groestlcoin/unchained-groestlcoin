@@ -1,18 +1,18 @@
 {
-  "name": "unchained-bitcoin",
+  "name": "unchained-groestlcoin",
   "version": "0.1.3",
-  "description": "Unchained Capital's bitcoin utilities library.",
+  "description": "Unchained Capital's groestlcoin utilities library.",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unchained-capital/unchained-bitcoin.git"
+    "url": "git+https://github.com/groestlcoin/unchained-groestlcoin.git"
   },
-  "author": "Unchained Capital",
+  "author": "Groestlcoin Developers",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/unchained-capital/unchained-bitcoin/issues"
+    "url": "https://github.com/groestlcoin/unchained-groestlcoin/issues"
   },
-  "homepage": "https://unchained-capital.github.io/unchained-bitcoin",
+  "homepage": "https://groestlcoin.org/",
   "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
@@ -40,10 +40,10 @@
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
     "bignumber.js": "^8.1.1",
-    "bip32": "^2.0.5",
+    "bip32grs": "^2.0.5",
     "bitcoin-address-validation": "^0.2.9",
-    "bitcoinjs-lib": "^5.1.10",
-    "bs58check": "^2.1.2",
+    "groestlcoinjs-lib": "^5.1.10",
+    "bs58grscheck": "^2.1.2",
     "bufio": "^1.0.6",
     "core-js": "^2.6.10"
   },

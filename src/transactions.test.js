@@ -14,7 +14,7 @@ import {
 import {P2WSH} from './p2wsh';
 import {P2SH_P2WSH} from './p2sh_p2wsh';
 
-const bitcoin = require('bitcoinjs-lib');
+const bitcoin = require('groestlcoinjs-lib');
 
 // FIXME: transactionbuilder is deprecating, but we know this. remove this after addressing.
 console.warn = jest.fn();
@@ -42,7 +42,7 @@ describe("transactions", () => {
       it("throws an error when there an output is invalid", () => {
         expect(() => { unsignedMultisigTransaction(fixture.network, fixture.inputs, [{}]); }).toThrow(/does not have.*amount/i);
       });
-      
+
     });
 
 
@@ -113,7 +113,7 @@ describe("transactions", () => {
     it("throws an error when a duplicate input signature is given", () => {
       expect(() => { signedMultisigTransaction(fixture.network, fixture.inputs, fixture.outputs, [fixture.signature, fixture.signature]); }).toThrow(/duplicate signature for input/i);
     });
-    
+
     it("can construct a valid signed P2SH transaction", () => {
       const redeemScriptHex = "522103684f6787d61cc6af5ea660129f97e312ce0e5276abaf569e842f167c4630126021030c58cc16013c7fdf510ab2b68be808e0de2b25d0f36bb17c60bafd11bb052d9e21020cc7153dd76284f35f8caa86a7d1cae228b10f1bb94dcdbc34ce579b2ea08e1053ae";
       const multisig = generateMultisigFromHex(TESTNET, P2SH, redeemScriptHex);
@@ -144,7 +144,7 @@ describe("transactions", () => {
       const signedTransactionHex = "0100000001d73e679ff387f1a0628c2ad9d3a966cef05b0931d9f0ea8ba7df3712486c6d9101000000fc004730440220564e4623beaed42fb0302a2ee2e78e1e7cbee5ed256285b831450b70e8dbc2fa022018a29525a2deccbf397a4952d64a9b317bbd926d44418ec3f6cff4b2001b474c014730440220707beb7625cb4b9925bbae2668d34d44de78879728e14bc40d0c84ea7947c9860220230dcbde54882b481e287d852d2545bb0d955af13984d06ff62ba4bd1de6cd59014c69522103684f6787d61cc6af5ea660129f97e312ce0e5276abaf569e842f167c4630126021030c58cc16013c7fdf510ab2b68be808e0de2b25d0f36bb17c60bafd11bb052d9e21020cc7153dd76284f35f8caa86a7d1cae228b10f1bb94dcdbc34ce579b2ea08e1053aeffffffff02a086010000000000160014e09bf5948b620e2f0c239bcf0b8d7cc4e72e5057963f0f000000000016001449cd70ee02b303694f3f07b5c0d6f34cce0c84f500000000";
 
       const signedTransaction = signedMultisigTransaction(TESTNET, inputs, outputs, [transactionSignature1, transactionSignature2]);
-      
+
       expect(signedTransaction.toHex()).toEqual(signedTransactionHex);
     });
 

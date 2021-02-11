@@ -1,4 +1,4 @@
-import {Psbt} from "bitcoinjs-lib";
+import {Psbt} from "groestlcoinjs-lib";
 import {toHexString} from './utils';
 import {
   multisigAddressType,
@@ -13,7 +13,7 @@ import {P2WSH} from './p2wsh';
 import {P2SH_P2WSH} from './p2sh_p2wsh';
 import {generateBip32DerivationByIndex, generateBraid} from './braid';
 
-const bitcoin = require('bitcoinjs-lib');
+const bitcoin = require('groestlcoinjs-lib');
 
 /**
  * This module provides functions for interacting with PSBTs, see BIP174
@@ -71,9 +71,9 @@ const bitcoin = require('bitcoinjs-lib');
  * const braid = generateBraidFromExtendedPublicKeys(MAINNET, P2SH, {{'xpub...', bip32path: "m/45'/0'/0'"}, {'xpub...', bip32path: "m/45'/0/0"}, {'xpub...', bip32path: "m/45'/0/0"}}, 2);
  * const multisig = braid.deriveMultisigByIndex("0");
  * console.log(getBip32Derivation(multisig, 0)); // {
- *   {masterFingerprint: Buffer('1234..', 'hex'), path: "m/45'/0'/0'/0/0", pubkey: Buffer.from("02...", 'hex')}
- *   {masterFingerprint: Buffer('3453..', 'hex'), path: "m/45'/0/0/0/0", pubkey: Buffer.from("03...", 'hex')}
- *   {masterFingerprint: Buffer('1533..', 'hex'), path: "m/45'/0/0/0/0", pubkey: Buffer.from("02...", 'hex')}
+ *   {masterFingerprint: Buffer('1234..', 'hex'), path: "m/45'/17'/0'/0/0", pubkey: Buffer.from("02...", 'hex')}
+ *   {masterFingerprint: Buffer('3453..', 'hex'), path: "m/45'/17/0/0/0", pubkey: Buffer.from("03...", 'hex')}
+ *   {masterFingerprint: Buffer('1533..', 'hex'), path: "m/45'/17/0/0/0", pubkey: Buffer.from("02...", 'hex')}
  * }
  */
 function getBip32Derivation(multisig, index= 0) {

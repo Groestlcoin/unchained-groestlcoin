@@ -1,4 +1,4 @@
-import bs58check from "bs58check";
+import bs58check from "bs58grscheck";
 import bs58 from "bs58";
 
 import {

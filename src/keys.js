@@ -6,9 +6,9 @@
  * @module keys
  */
 
-import { ECPair } from "bitcoinjs-lib";
-import * as bip32 from "bip32";
-import bs58check from "bs58check";
+import { ECPair } from "groestlcoinjs-lib";
+import * as bip32 from "bip32grs";
+import bs58check from "bs58grscheck";
 import { Struct } from "bufio";
 import assert from "assert";
 import { validateHex, toHexString, hash160 } from "./utils";

@@ -1,7 +1,7 @@
-/** 
+/**
  * This module provides functions for constructing and validating
  * multisig transactions.
- * 
+ *
  * @module transactions
  */
 
@@ -28,7 +28,7 @@ import {
 import {validateOutputs} from "./outputs";
 import {scriptToHex} from './script';
 import {psbtInputFormatter, psbtOutputFormatter} from './psbt';
-const bitcoin = require('bitcoinjs-lib');
+const bitcoin = require('groestlcoinjs-lib');
 
 
 /**
@@ -63,7 +63,7 @@ const bitcoin = require('bitcoinjs-lib');
  *   // other outputs...
  * ];
  * const unsignedTransaction = unsignedMultisigTransaction(TESTNET, inputs, outputs);
- * 
+ *
  */
 export function unsignedMultisigTransaction(network, inputs, outputs) {
   const multisigInputError = validateMultisigInputs(inputs);
@@ -130,7 +130,7 @@ export function unsignedTransactionObjectFromPSBT(psbt) {
 /**
  * Create a fully signed multisig transaction based on the unsigned
  * transaction, inputs, and their signatures.
- * 
+ *
  * @param {module:networks.NETWORKS} network - bitcoin network
  * @param {module:inputs.MultisigTransactionInput[]} inputs - multisig transaction inputs
  * @param {module:outputs.TransactionOutput[]} outputs - transaction outputs
@@ -195,7 +195,7 @@ export function signedMultisigTransaction(network, inputs, outputs, transactionS
     if (inputSignatures.length < requiredSignatures) {
       throw new Error(`Insufficient signatures for input  ${inputIndex + 1}: require ${requiredSignatures},  received ${inputSignatures.length}.`);
     }
-    
+
     const inputSignaturesByPublicKey = {};
     inputSignatures.forEach((inputSignature) => {
       let publicKey;
@@ -209,7 +209,7 @@ export function signedMultisigTransaction(network, inputs, outputs, transactionS
       }
       inputSignaturesByPublicKey[publicKey] = inputSignature;
     });
-    
+
     // Sort the signatures for this input by the index of their
     // corresponding public key within this input's redeem script.
     const publicKeys = multisigPublicKeys(input.multisig);

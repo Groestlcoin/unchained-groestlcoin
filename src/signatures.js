@@ -1,7 +1,7 @@
 /**
  * This module provides functions for validating and handling
  * multisig transaction signatures.
- * 
+ *
  * @module signatures
  */
 
@@ -21,11 +21,11 @@ import {
   unsignedMultisigTransaction,
 } from "./transactions";
 
-const bitcoin = require('bitcoinjs-lib');
+const bitcoin = require('groestlcoinjs-lib');
 
 /**
  * Validate a multisig signature for given input and public key.
- * 
+ *
  * @param {module:networks.NETWORKS} network - bitcoin network
  * @param {module:inputs.MultisigTransactionInput[]} inputs - multisig transaction inputs
  * @param {module:outputs.TransactionOutput[]} outputs - transaction outputs

@@ -1,26 +1,26 @@
-const bitcoin = require('bitcoinjs-lib');
+const bitcoin = require('groestlcoinjs-lib');
 
 /**
  * This module exports network constants and provide some utility
  * functions for displaying the network name and passing the network
  * value to bitcoinjs.
- * 
+ *
  * @module networks
  */
 
 /**
  * Constant corresponding to the Bitcoin mainnet.
- * 
+ *
  * @constant
  * @type {string}
  * @default mainnet
- * 
+ *
  */
 export const MAINNET = "mainnet";
 
 /**
  * Constant corresponding to the current Bitcoin testnet.
- * 
+ *
  * @constant
  * @type {string}
  * @default testnet
@@ -44,7 +44,7 @@ export const NETWORKS = {
  * network.
  *
  * This function is for internal use by this library.
- * 
+ *
  * @param {module:networks.NETWORKS} network - bitcoin network
  * @returns {Network} bitcoinjs-lib network object
  */
@@ -61,7 +61,7 @@ export function networkData(network) {
 
 /**
  * Returns human-readable network label for the specified network.
- * 
+ *
  * @param {module:networks.NETWORKS} network - bitcoin network
  * @returns {string} network label
  * @example

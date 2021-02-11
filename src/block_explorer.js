@@ -1,6 +1,6 @@
 /**
  * This module provides functions for creating URLs for Blockstream's
- * [block explorer]{@link https://blockstream.info}.
+ * [block explorer]{@link https://esplora.groestlcoin.org}.
  *
  * This module does NOT provide implementations of HTTP requests which
  * fetch data from these URLs.
@@ -10,8 +10,8 @@
 
 import {TESTNET} from "./networks";
 
-const BASE_URL_MAINNET = 'https://blockstream.info';
-const BASE_URL_TESTNET = 'https://blockstream.info/testnet';
+const BASE_URL_MAINNET = 'https://esplora.groestlcoin.org';
+const BASE_URL_TESTNET = 'https://esplora-test.groestlcoin.org';
 
 function blockExplorerBaseURL(network) {
   return (network === TESTNET ? BASE_URL_TESTNET : BASE_URL_MAINNET);
@@ -26,8 +26,8 @@ function blockExplorerBaseURL(network) {
  * @example
  * import {MAINNET, TESTNET, blockExplorerURL} from "unchained-bitcoin";
  * const path = "/block/00000000000000000011341d69792271766e4683e29b3ea169eacc59bde10a57";
- * console.log(blockExplorerURL(path, MAINNET)) // https://blockstream.info/block/00000000000000000011341d69792271766e4683e29b3ea169eacc59bde10a57
- * console.log(blockExplorerURL(path, TESTNET)) // https://blockstream.info/block/testnet/00000000000000000011341d69792271766e4683e29b3ea169eacc59bde10a57
+ * console.log(blockExplorerURL(path, MAINNET)) // https://esplora.groestlcoin.org/block/00000000000000000011341d69792271766e4683e29b3ea169eacc59bde10a57
+ * console.log(blockExplorerURL(path, TESTNET)) // https://esplora.groestlcoin.org/block/testnet/00000000000000000011341d69792271766e4683e29b3ea169eacc59bde10a57
  */
 export function blockExplorerURL(path, network) {
   return `${blockExplorerBaseURL(network)}${path}`;
@@ -42,8 +42,8 @@ export function blockExplorerURL(path, network) {
  * @example
  * import {MAINNET, TESTNET, blockExplorerAPIURL} from "unchained-bitcoin";
  * const path = "/tx/1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0";
- * console.log(blockExplorerAPIURL(path, MAINNET)); // https://blockstream.info/api/tx/1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0
- * console.log(blockExplorerAPIURL(path, TESTNET)); // https://blockstream.info/testnet/api/tx/1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0
+ * console.log(blockExplorerAPIURL(path, MAINNET)); // https://esplora.groestlcoin.org/api/tx/1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0
+ * console.log(blockExplorerAPIURL(path, TESTNET)); // https://esplora-test.groestlcoin.org/api/tx/1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0
  */
 export function blockExplorerAPIURL(path, network) {
   return `${blockExplorerBaseURL(network)}/api${path}`;
@@ -58,8 +58,8 @@ export function blockExplorerAPIURL(path, network) {
  * @example
  * import {MAINNET, TESTNET, blockExplorerTransactionURL} from "unchained-bitcoin";
  * const txid = "1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0";
- * console.log(blockExplorerTransactionURL(txid, MAINNET)); // https://blockstream.info/tx/1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0
- * console.log(blockExplorerTransactionURL(txid, TESTNET)); // https://blockstream.info/testnet/tx/1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0
+ * console.log(blockExplorerTransactionURL(txid, MAINNET)); // https://esplora.groestlcoin.org/tx/1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0
+ * console.log(blockExplorerTransactionURL(txid, TESTNET)); // https://esplora-test.groestlcoin.org/tx/1814a10fb22e9551a17a94a1e68971e19b4f59eaf1689e0af85b97929b3b9ae0
  */
 export function blockExplorerTransactionURL(txid, network) {
   return blockExplorerURL(`/tx/${txid}`, network);
@@ -74,8 +74,8 @@ export function blockExplorerTransactionURL(txid, network) {
  * @example
  * import {MAINNET, TESTNET, blockExplorerAddressURL} from "unchained-bitcoin";
  * const address = "39YqNoLULDpbjmeCTdGJ42DQhrQLzRcMdX";
- * console.log(blockExplorerAddressURL(address, MAINNET)); // https://blockstream.info/address/39YqNoLULDpbjmeCTdGJ42DQhrQLzRcMdX
- * console.log(blockExplorerAddressURL(address, TESTNET)); // https://blockstream.info/testnet/address/39YqNoLULDpbjmeCTdGJ42DQhrQLzRcMdX
+ * console.log(blockExplorerAddressURL(address, MAINNET)); // https://esplora.groestlcoin.org/address/39YqNoLULDpbjmeCTdGJ42DQhrQLzRcMdX
+ * console.log(blockExplorerAddressURL(address, TESTNET)); // https://esplora-test.groestlcoin.org/address/39YqNoLULDpbjmeCTdGJ42DQhrQLzRcMdX
  */
 export function blockExplorerAddressURL(address, network) {
   return blockExplorerURL(`/address/${address}`, network);
