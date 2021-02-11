@@ -4,7 +4,7 @@
  * @module address
  */
 
-import bitcoinAddressValidation from "bitcoin-address-validation";
+import bitcoinAddressValidation from "groestlcoin-address-validation";
 
 import { TESTNET } from "./networks";
 

@@ -20,12 +20,12 @@ git:
 notifications:
   email:
     recipients:
-      - chris@unchained-capital.com
+      - groestlcoin@gmail.com
     on_success: change
     on_failure: always
 
 before_deploy:
   - npm install
   - git remote set-url origin https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
-  - git config --global user.email "Travis CI<ci@unchained-capital.com>"
+  - git config --global user.email "Travis CI<groestlcoin@gmail.com>"
   - git config --global user.name "TravisCI"
